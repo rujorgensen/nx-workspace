@@ -1,0 +1,72 @@
+name: "CI Pipeline: Lint and unit tests"
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: 
+      - '**'        # '**' matches every branch
+      - '!wip/**'   # Don't trigger on _Work _In _Process branches
+
+env:
+  # Usefull flags for the jobs later on
+  is-main-branch: ${{ github.ref == 'refs/heads/main' }}
+  is-pull-request: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # We need to fetch all branches and commits so that Nx affected has a
+          # base to compare against
+          fetch-depth: 0
+          
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - if: ${{ steps.cache-npm.outputs.cache-hit == 'false' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: npm list
+
+      - name: Install dependencies
+        run: npm ci --omit=optional --no-audit
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+        
+      # Lint nx specific workspace files
+      - 
+        name: Lint Workspace
+        run: npx nx workspace-lint
+      
+      # Check for un-formatted files
+      - 
+        name: Lint all
+        run: npm run lint:all
+
+      - 
+        name: Test all
+        run: npm run test:all
+     
+      - 
+        name: Build all
+        run: npm run build:all:prod
