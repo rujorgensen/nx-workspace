@@ -18,6 +18,9 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
+            "@backend/features/user": [
+                "libs/backend/features/user/backend-library/src/index.ts"
+            ],
             "@happynrwl/api-interfaces": [
                 "libs/api-interfaces/src/index.ts"
             ]

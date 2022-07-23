@@ -1,5 +1,5 @@
 {
-    "version": 1,
+    "version": 2,
     "projects": {
         "angular-app": {
             "$schema": "../../node_modules/nx/schemas/project-schema.json",
@@ -7,9 +7,9 @@
             "root": "apps/angular-app",
             "sourceRoot": "apps/angular-app/src",
             "prefix": "happynrwl",
-            "architect": {
+            "targets": {
                 "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
+                    "executor": "@angular-devkit/build-angular:browser",
                     "options": {
                         "outputPath": "dist/apps/angular-app",
                         "index": "apps/angular-app/src/index.html",
@@ -57,7 +57,7 @@
                     }
                 },
                 "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "executor": "@angular-devkit/build-angular:dev-server",
                     "options": {
                         "browserTarget": "angular-app:build",
                         "proxyConfig": "apps/angular-app/proxy.conf.json"
@@ -69,13 +69,13 @@
                     }
                 },
                 "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "executor": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
                         "browserTarget": "angular-app:build"
                     }
                 },
                 "lint": {
-                    "builder": "@nrwl/linter:eslint",
+                    "executor": "@nrwl/linter:eslint",
                     "options": {
                         "lintFilePatterns": [
                             "apps/angular-app/src/**/*.ts",
@@ -87,7 +87,7 @@
                     ]
                 },
                 "test": {
-                    "builder": "@nrwl/jest:jest",
+                    "executor": "@nrwl/jest:jest",
                     "outputs": [
                         "coverage/apps/angular-app"
                     ],
@@ -103,9 +103,9 @@
             "root": "apps/angular-app-e2e",
             "sourceRoot": "apps/angular-app-e2e/src",
             "projectType": "application",
-            "architect": {
+            "targets": {
                 "e2e": {
-                    "builder": "@nrwl/cypress:cypress",
+                    "executor": "@nrwl/cypress:cypress",
                     "options": {
                         "cypressConfig": "apps/angular-app-e2e/cypress.json",
                         "tsConfig": "apps/angular-app-e2e/tsconfig.e2e.json",
@@ -118,7 +118,7 @@
                     }
                 },
                 "lint": {
-                    "builder": "@nrwl/linter:eslint",
+                    "executor": "@nrwl/linter:eslint",
                     "options": {
                         "lintFilePatterns": [
                             "apps/angular-app-e2e/**/*.{js,ts}"
@@ -135,9 +135,9 @@
             "root": "apps/api",
             "sourceRoot": "apps/api/src",
             "projectType": "application",
-            "architect": {
+            "targets": {
                 "build": {
-                    "builder": "@nrwl/node:webpack",
+                    "executor": "@nrwl/node:webpack",
                     "outputs": [
                         "{options.outputPath}"
                     ],
@@ -164,13 +164,13 @@
                     }
                 },
                 "serve": {
-                    "builder": "@nrwl/node:node",
+                    "executor": "@nrwl/node:node",
                     "options": {
                         "buildTarget": "api:build"
                     }
                 },
                 "lint": {
-                    "builder": "@nrwl/linter:eslint",
+                    "executor": "@nrwl/linter:eslint",
                     "options": {
                         "lintFilePatterns": [
                             "apps/api/**/*.ts"
@@ -181,7 +181,7 @@
                     ]
                 },
                 "test": {
-                    "builder": "@nrwl/jest:jest",
+                    "executor": "@nrwl/jest:jest",
                     "outputs": [
                         "coverage/apps/api"
                     ],
@@ -197,9 +197,9 @@
             "root": "libs/api-interfaces",
             "sourceRoot": "libs/api-interfaces/src",
             "projectType": "library",
-            "architect": {
+            "targets": {
                 "lint": {
-                    "builder": "@nrwl/linter:eslint",
+                    "executor": "@nrwl/linter:eslint",
                     "options": {
                         "lintFilePatterns": [
                             "libs/api-interfaces/**/*.ts"
@@ -210,6 +210,7 @@
                     ]
                 }
             }
-        }
+        },
+        "backend-features-user": "libs/backend/features/user/backend-library"
     }
 }
