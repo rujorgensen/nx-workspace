@@ -1,8 +1,6 @@
-/* eslint-disable */
 export default {
     displayName: 'angular-app',
-    preset: '../../jest.preset.js',
-    setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+    setupFilesAfterEnv: ['<rootDir>/src/test-setup.config.ts'],
     globals: {
         'ts-jest': {
             tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -10,10 +8,12 @@ export default {
         },
     },
     coverageDirectory: '../../coverage/apps/angular-app',
+    transform: { '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular' },
+    transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
     snapshotSerializers: [
         'jest-preset-angular/build/serializers/no-ng-attributes',
         'jest-preset-angular/build/serializers/ng-snapshot',
         'jest-preset-angular/build/serializers/html-comment',
     ],
-    transform: { '^.+\\.(ts|js|html)$': 'jest-preset-angular' },
+    preset: '../../jest.preset.js',
 };
