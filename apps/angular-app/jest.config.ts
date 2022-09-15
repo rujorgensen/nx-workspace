@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default {
     displayName: 'angular-app',
     setupFilesAfterEnv: ['<rootDir>/src/test-setup.config.ts'],
