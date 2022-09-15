@@ -107,9 +107,10 @@
                 "e2e": {
                     "executor": "@nrwl/cypress:cypress",
                     "options": {
-                        "cypressConfig": "apps/angular-app-e2e/cypress.json",
+                        "cypressConfig": "apps/angular-app-e2e/cypress.config.ts",
                         "tsConfig": "apps/angular-app-e2e/tsconfig.e2e.json",
-                        "devServerTarget": "angular-app:serve"
+                        "devServerTarget": "angular-app:serve",
+                        "testingType": "e2e"
                     },
                     "configurations": {
                         "production": {
