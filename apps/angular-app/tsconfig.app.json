@@ -9,6 +9,12 @@
         "src/polyfills.ts"
     ],
     "exclude": [
-        "jest.config.ts"
+        "jest.config.ts",
+        "cypress/**/*",
+        "cypress.config.ts",
+        "**/*.cy.ts",
+        "**/*.cy.js",
+        "**/*.cy.tsx",
+        "**/*.cy.jsx"
     ]
 }
