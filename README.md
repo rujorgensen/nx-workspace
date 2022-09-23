@@ -1,4 +1,5 @@
-
+# Quick Start
+Run `npm run serve:stack` to serve the stack, then go to http://localhost:4200/.
 
 # Happynrwl
 
