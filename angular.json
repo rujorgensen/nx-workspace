@@ -138,7 +138,7 @@
             "projectType": "application",
             "targets": {
                 "build": {
-                    "executor": "@nrwl/node:webpack",
+                    "executor": "@nrwl/webpack:webpack",
                     "outputs": [
                         "{options.outputPath}"
                     ],
@@ -148,7 +148,9 @@
                         "tsConfig": "apps/api/tsconfig.app.json",
                         "assets": [
                             "apps/api/src/assets"
-                        ]
+                        ],
+                        "target": "node",
+                        "compiler": "tsc"
                     },
                     "configurations": {
                         "production": {
