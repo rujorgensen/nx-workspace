@@ -95,6 +95,15 @@
                         "jestConfig": "apps/angular-app/jest.config.ts",
                         "passWithNoTests": true
                     }
+                },
+                "component-test": {
+                    "executor": "@nrwl/cypress:cypress",
+                    "options": {
+                        "cypressConfig": "apps/angular-app/cypress.config.ts",
+                        "testingType": "component",
+                        "skipServe": true,
+                        "devServerTarget": "angular-app:build"
+                    }
                 }
             }
         },
