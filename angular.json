@@ -224,6 +224,34 @@
             }
         },
         "backend-features-user": "libs/backend/features/user/backend-library",
+        "frontend-pipes-pipes": {
+            "projectType": "library",
+            "root": "libs/frontend/pipes/pipes",
+            "sourceRoot": "libs/frontend/pipes/pipes/src",
+            "prefix": "happynrwl",
+            "targets": {
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": [
+                        "coverage/libs/frontend/pipes/pipes"
+                    ],
+                    "options": {
+                        "jestConfig": "libs/frontend/pipes/pipes/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                },
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/frontend/pipes/pipes/**/*.ts",
+                            "libs/frontend/pipes/pipes/**/*.html"
+                        ]
+                    }
+                }
+            },
+            "tags": []
+        },
         "frontend-ui-components": {
             "projectType": "library",
             "root": "libs/frontend/ui-components",

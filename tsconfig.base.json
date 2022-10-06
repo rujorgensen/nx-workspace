@@ -21,6 +21,9 @@
             "@backend/features/user": [
                 "libs/backend/features/user/backend-library/src/index.ts"
             ],
+            "@frontend/pipes": [
+                "libs/frontend/pipes/pipes/src/index.ts"
+            ],
             "@frontend/ui-components": [
                 "libs/frontend/ui-components/src/index.ts"
             ],
