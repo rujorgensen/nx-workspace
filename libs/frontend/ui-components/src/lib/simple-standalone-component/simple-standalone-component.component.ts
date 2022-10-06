@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
         CommonModule,
     ],
     templateUrl: './simple-standalone-component.component.html',
-    styleUrls: ['./simple-standalone-component.component.css']
+    styleUrls: ['./simple-standalone-component.component.scss']
 })
 export class SimpleStandaloneComponentComponent {
 
