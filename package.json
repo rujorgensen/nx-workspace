@@ -19,7 +19,7 @@
         "//-2b": "// *** TEST                                                                    ",
         "//-2c": "// ****************************************************************************",
         "test:all": "nx run-many --target=test --all --parallel --skip-nx-cache",
-        "test:components": "nx component-test --all --watch",
+        "test:components": "nx component-test frontend-ui-components --watch",
         "//-3a": "// ****************************************************************************",
         "//-3b": "// *** SERVE                                                                   ",
         "//-3c": "// ****************************************************************************",
