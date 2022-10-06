@@ -248,6 +248,15 @@
                             "libs/frontend/ui-components/**/*.html"
                         ]
                     }
+                },
+                "component-test": {
+                    "executor": "@nrwl/cypress:cypress",
+                    "options": {
+                        "cypressConfig": "libs/frontend/ui-components/cypress.config.ts",
+                        "testingType": "component",
+                        "skipServe": true,
+                        "devServerTarget": "angular-app:build"
+                    }
                 }
             },
             "tags": [
