@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,7 +10,15 @@ import { CommonModule } from '@angular/common';
     templateUrl: './standalone-component-with-input.component.html',
     styleUrls: ['./standalone-component-with-input.component.scss']
 })
-export class StandaloneComponentWithInputComponent {
+export class StandaloneComponentWithInputComponent implements OnChanges {
     @Input()
     public numberList!: number[];
+
+    public __changesDetected: number = 0;
+
+    public ngOnChanges(
+
+    ): void {
+        this.__changesDetected++;
+    }
 }

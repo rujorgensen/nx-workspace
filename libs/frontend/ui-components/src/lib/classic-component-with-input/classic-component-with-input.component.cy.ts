@@ -39,11 +39,23 @@ describe(ClassicComponentWithInputComponent.name, () => {
                 component.numberList = [1, 2, 3];
                 fixture.detectChanges();
             })
-            
+
             // * Assertion #2
             .get('[cy-data-id="el-number-list"]')
             .should('have.text', '1,2,3')
             ;
+    })
 
+    it('counts input changes', () => {
+        component.numberList = [1, 2, 3, 4];
+        fixture.detectChanges();
+
+        component.numberList = [1, 2, 3];
+        fixture.detectChanges();
+
+        cy
+            .get('[cy-data-id="el-change-count"]')
+            .should('have.text', '2')
+            ;
     })
 })
