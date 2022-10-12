@@ -14,6 +14,6 @@ export class ClassicComponentWithInputComponent implements OnChanges {
     public ngOnChanges(
 
     ): void {
-        this.__changesDetected = this.__changesDetected + 1;
+        this.__changesDetected++;
     }
 }

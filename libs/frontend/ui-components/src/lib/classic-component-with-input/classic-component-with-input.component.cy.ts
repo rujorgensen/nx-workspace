@@ -24,28 +24,30 @@ describe(ClassicComponentWithInputComponent.name, () => {
             ;
     });
 
+    // ✅ Works!
     it('detects input changes', () => {
 
         // * Act #1
-        component.numberList = [1, 2, 3, 4];
+        component.numberList = [1, 2, 3];
         fixture.detectChanges();
 
         cy
             // * Assertion #1
             .get('[cy-data-id="el-number-list"]')
-            .should('have.text', '1,2,3,4')
+            .should('have.text', '1,2,3')
             .then(() => {
                 // * Act #2
-                component.numberList = [1, 2, 3];
+                component.numberList = [1, 2, 3, 4];
                 fixture.detectChanges();
             })
 
             // * Assertion #2
             .get('[cy-data-id="el-number-list"]')
-            .should('have.text', '1,2,3')
+            .should('have.text', '1,2,3,4')
             ;
     })
 
+    // ❌ Does not work
     it('counts input changes', () => {
         component.numberList = [1, 2, 3, 4];
         fixture.detectChanges();
