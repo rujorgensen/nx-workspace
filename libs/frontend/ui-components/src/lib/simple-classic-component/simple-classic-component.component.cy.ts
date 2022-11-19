@@ -1,14 +1,16 @@
-import { MountConfig, mount } from 'cypress/angular';
+import { TestBed } from '@angular/core/testing';
+import { MountConfig } from 'cypress/angular';
 import { SimpleClassicComponentComponent } from './simple-classic-component.component';
 
 describe(SimpleClassicComponentComponent.name, () => {
     const config: MountConfig<SimpleClassicComponentComponent> = {
         declarations: [],
         imports: [],
-        providers: []
-    }
+        providers: [],
+    };
 
     it('renders', () => {
-        mount(SimpleClassicComponentComponent, config);
-    })
-})
+        TestBed.overrideComponent(SimpleClassicComponentComponent, { add: { providers: config.providers } });
+        cy.mount(SimpleClassicComponentComponent, config);
+    });
+});

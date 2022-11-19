@@ -89,7 +89,7 @@
                 "test": {
                     "executor": "@nrwl/jest:jest",
                     "outputs": [
-                        "coverage/apps/angular-app"
+                        "{workspaceRoot}/coverage/apps/angular-app"
                     ],
                     "options": {
                         "jestConfig": "apps/angular-app/jest.config.ts",
@@ -195,7 +195,7 @@
                 "test": {
                     "executor": "@nrwl/jest:jest",
                     "outputs": [
-                        "coverage/apps/api"
+                        "{workspaceRoot}/coverage/apps/api"
                     ],
                     "options": {
                         "jestConfig": "apps/api/jest.config.ts",
@@ -233,7 +233,7 @@
                 "test": {
                     "executor": "@nrwl/jest:jest",
                     "outputs": [
-                        "coverage/libs/frontend/pipes/pipes"
+                        "{workspaceRoot}/coverage/libs/frontend/pipes/pipes"
                     ],
                     "options": {
                         "jestConfig": "libs/frontend/pipes/pipes/jest.config.ts",
@@ -261,7 +261,7 @@
                 "test": {
                     "executor": "@nrwl/jest:jest",
                     "outputs": [
-                        "coverage/libs/frontend/ui-components"
+                        "{workspaceRoot}/coverage/libs/frontend/ui-components"
                     ],
                     "options": {
                         "jestConfig": "libs/frontend/ui-components/jest.config.ts",

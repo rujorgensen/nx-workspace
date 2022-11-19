@@ -18,7 +18,7 @@
         "test": {
             "executor": "@nrwl/jest:jest",
             "outputs": [
-                "coverage/libs/backend/features/user/backend-library"
+                "{workspaceRoot}/coverage/libs/backend/features/user/backend-library"
             ],
             "options": {
                 "jestConfig": "libs/backend/features/user/backend-library/jest.config.ts",

@@ -1,32 +1,33 @@
+import { TestBed } from '@angular/core/testing';
 import { ComponentFixture } from '@angular/core/testing';
-import { MountConfig, mount } from 'cypress/angular';
+import { MountConfig } from 'cypress/angular';
 import { ClassicComponentWithInputComponent } from './classic-component-with-input.component';
 
 describe(ClassicComponentWithInputComponent.name, () => {
     const config: MountConfig<ClassicComponentWithInputComponent> = {
         declarations: [],
         imports: [],
-        providers: []
-    }
+        providers: [],
+    };
     let component: ClassicComponentWithInputComponent;
     let fixture: ComponentFixture<ClassicComponentWithInputComponent>;
 
     beforeEach((done) => {
-        mount(ClassicComponentWithInputComponent, {
-            ...config,
-        })
+        TestBed.overrideComponent(ClassicComponentWithInputComponent, { add: {} });
+        cy
+            .mount(ClassicComponentWithInputComponent, {
+                ...config,
+            })
             .then((instance) => {
                 component = instance.fixture.componentInstance;
                 fixture = instance.fixture;
                 fixture.detectChanges();
                 done();
-            })
-            ;
+            });
     });
 
     // ✅ Works!
     it('detects input changes', () => {
-
         // * Act #1
         component.numberList = [1, 2, 3];
         fixture.detectChanges();

@@ -1,20 +1,23 @@
+import { TestBed } from '@angular/core/testing';
 import { ComponentFixture } from '@angular/core/testing';
-import { MountConfig, mount } from 'cypress/angular';
+import { MountConfig } from 'cypress/angular';
 import { StandaloneComponentWithInputComponent } from './standalone-component-with-input.component';
 
 describe(StandaloneComponentWithInputComponent.name, () => {
     const config: MountConfig<StandaloneComponentWithInputComponent> = {
         declarations: [],
         imports: [],
-        providers: []
-    }
+        providers: [],
+    };
     let component: StandaloneComponentWithInputComponent;
     let fixture: ComponentFixture<StandaloneComponentWithInputComponent>;
 
     beforeEach((done) => {
-        mount(StandaloneComponentWithInputComponent, {
-            ...config,
-        })
+        TestBed.overrideComponent(StandaloneComponentWithInputComponent, { add: {} });
+        cy
+            .mount(StandaloneComponentWithInputComponent, {
+                ...config,
+            })
             .then((instance) => {
                 component = instance.fixture.componentInstance;
                 fixture = instance.fixture;
@@ -25,8 +28,9 @@ describe(StandaloneComponentWithInputComponent.name, () => {
     });
 
     it('renders', () => {
-        mount(StandaloneComponentWithInputComponent, config);
-    })
+        TestBed.overrideComponent(StandaloneComponentWithInputComponent, { add: { providers: config.providers } });
+        cy.mount(StandaloneComponentWithInputComponent, config);
+    });
 
     it('detects input changes', () => {
         // * Act #1
@@ -47,5 +51,5 @@ describe(StandaloneComponentWithInputComponent.name, () => {
             .get('[cy-data-id="el-number-list"]')
             .should('have.text', '1,2,3')
             ;
-    })
-})
+    });
+});

@@ -1,21 +1,30 @@
-import { MountConfig, mount } from 'cypress/angular';
+import { TestBed } from '@angular/core/testing';
+import { MountConfig } from 'cypress/angular';
 import { SimpleStandaloneComponentComponent } from './simple-standalone-component.component';
 
 describe(SimpleStandaloneComponentComponent.name, () => {
     const config: MountConfig<SimpleStandaloneComponentComponent> = {
         declarations: [],
         imports: [],
-        providers: []
-    }
+        providers: [],
+    };
 
     it('renders', () => {
-        mount(SimpleStandaloneComponentComponent, config);
-    })
+        TestBed.overrideComponent(SimpleStandaloneComponentComponent, { add: { providers: config.providers } });
+        cy
+            .mount(SimpleStandaloneComponentComponent, config)
+            ;
+    });
 
     it('should contain pipe output', () => {
-        mount(SimpleStandaloneComponentComponent, config);
+        TestBed.overrideComponent(SimpleStandaloneComponentComponent, { add: { providers: config.providers } });
+        cy
+            .mount(SimpleStandaloneComponentComponent, config)
+            ;
 
-        cy.get('b')
-            .should('contain', 'standalone-pipe');
-    })
-})
+        cy
+            .get('b')
+            .should('contain', 'standalone-pipe')
+            ;
+    });
+});

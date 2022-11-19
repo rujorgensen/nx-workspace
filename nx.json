@@ -1,11 +1,4 @@
 {
-    "implicitDependencies": {
-        "package.json": {
-            "dependencies": "*",
-            "devDependencies": "*"
-        },
-        ".eslintrc.json": "*"
-    },
     "affected": {
         "defaultBase": "master"
     },
@@ -62,6 +55,56 @@
         },
         "@nrwl/angular:component": {
             "style": "scss"
+        }
+    },
+    "namedInputs": {
+        "default": [
+            "{projectRoot}/**/*",
+            "sharedGlobals"
+        ],
+        "sharedGlobals": [],
+        "production": [
+            "default",
+            "!{projectRoot}/cypress/**/*",
+            "!{projectRoot}/**/*.cy.[jt]s?(x)",
+            "!{projectRoot}/cypress.config.[jt]s",
+            "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+            "!{projectRoot}/tsconfig.spec.json",
+            "!{projectRoot}/jest.config.[jt]s",
+            "!{projectRoot}/.eslintrc.json"
+        ]
+    },
+    "targetDefaults": {
+        "build": {
+            "inputs": [
+                "production",
+                "^production"
+            ]
+        },
+        "component-test": {
+            "inputs": [
+                "default",
+                "^production"
+            ]
+        },
+        "e2e": {
+            "inputs": [
+                "default",
+                "^production"
+            ]
+        },
+        "test": {
+            "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}/jest.preset.js"
+            ]
+        },
+        "lint": {
+            "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json"
+            ]
         }
     }
 }
