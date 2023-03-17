@@ -1,0 +1,106 @@
+{
+    "name": "angular-app",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "sourceRoot": "apps/angular-app/src",
+    "prefix": "happynrwl",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:browser",
+            "options": {
+                "outputPath": "dist/apps/angular-app",
+                "index": "apps/angular-app/src/index.html",
+                "main": "apps/angular-app/src/main.ts",
+                "polyfills": "apps/angular-app/src/polyfills.ts",
+                "tsConfig": "apps/angular-app/tsconfig.app.json",
+                "aot": true,
+                "assets": [
+                    "apps/angular-app/src/favicon.ico",
+                    "apps/angular-app/src/assets"
+                ],
+                "styles": [
+                    "apps/angular-app/src/styles.scss"
+                ],
+                "scripts": []
+            },
+            "configurations": {
+                "production": {
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/angular-app/src/environments/environment.ts",
+                            "with": "apps/angular-app/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "optimization": true,
+                    "outputHashing": "all",
+                    "sourceMap": false,
+                    "namedChunks": false,
+                    "extractLicenses": true,
+                    "vendorChunk": false,
+                    "buildOptimizer": true,
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "2mb",
+                            "maximumError": "5mb"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "6kb",
+                            "maximumError": "10kb"
+                        }
+                    ]
+                }
+            }
+        },
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "options": {
+                "browserTarget": "angular-app:build",
+                "proxyConfig": "apps/angular-app/proxy.conf.json"
+            },
+            "configurations": {
+                "production": {
+                    "browserTarget": "angular-app:build:production"
+                }
+            }
+        },
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+                "browserTarget": "angular-app:build"
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "apps/angular-app/src/**/*.ts",
+                    "apps/angular-app/src/**/*.html"
+                ]
+            },
+            "outputs": [
+                "{options.outputFile}"
+            ]
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": [
+                "{workspaceRoot}/coverage/apps/angular-app"
+            ],
+            "options": {
+                "jestConfig": "apps/angular-app/jest.config.ts",
+                "passWithNoTests": true
+            }
+        },
+        "component-test": {
+            "executor": "@nrwl/cypress:cypress",
+            "options": {
+                "cypressConfig": "apps/angular-app/cypress.config.ts",
+                "testingType": "component",
+                "skipServe": true,
+                "devServerTarget": "angular-app:build"
+            }
+        }
+    }
+}

@@ -2,14 +2,17 @@
 export default {
     displayName: 'angular-app',
     setupFilesAfterEnv: ['<rootDir>/src/test-setup.config.ts'],
-    globals: {
-        'ts-jest': {
-            tsconfig: '<rootDir>/tsconfig.spec.json',
-            stringifyContentPathRegex: '\\.(html|svg)$',
-        },
-    },
+    globals: {},
     coverageDirectory: '../../coverage/apps/angular-app',
-    transform: { '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular' },
+    transform: {
+        '^.+\\.(ts|mjs|js|html)$': [
+            'jest-preset-angular',
+            {
+                tsconfig: '<rootDir>/tsconfig.spec.json',
+                stringifyContentPathRegex: '\\.(html|svg)$',
+            },
+        ],
+    },
     transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
     snapshotSerializers: [
         'jest-preset-angular/build/serializers/no-ng-attributes',
