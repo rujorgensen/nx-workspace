@@ -9,6 +9,6 @@ export class StandalonePipe implements PipeTransform {
     public transform(
         _value: string,
     ): string {
-        return 'standalone-pipe';
+        return 'standalone-pipe-works';
     }
 }

@@ -24,6 +24,9 @@
             "@frontend/pipes": [
                 "libs/frontend/pipes/pipes/src/index.ts"
             ],
+            "@frontend/testing/cy/page-objects": [
+                "libs/frontend/testing/cy/page-objects/src/index.ts"
+            ],
             "@frontend/ui-components": [
                 "libs/frontend/ui-components/src/index.ts"
             ],

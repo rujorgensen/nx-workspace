@@ -24,7 +24,7 @@ describe(SimpleStandaloneComponentComponent.name, () => {
 
         cy
             .get('b')
-            .should('contain', 'standalone-pipe')
+            .should('contain', 'standalone-pipe-works')
             ;
     });
 });

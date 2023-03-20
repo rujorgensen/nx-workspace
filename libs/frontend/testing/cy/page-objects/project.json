@@ -1,0 +1,24 @@
+{
+    "name": "frontend-testing-cy-page-objects",
+    "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+    "root": "libs/frontend/testing/cy/page-objects",
+    "sourceRoot": "libs/frontend/testing/cy/page-objects/src",
+    "projectType": "library",
+    "targets": {
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": [
+                "{options.outputFile}"
+            ],
+            "options": {
+                "lintFilePatterns": [
+                    "libs/frontend/testing/cy/page-objects/**/*.ts"
+                ]
+            }
+        }
+    },
+    "tags": [
+        "scope:cypress",
+        "type:po"
+    ]
+}

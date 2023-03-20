@@ -1,10 +1,18 @@
 import { Given, Then, And } from 'cypress-cucumber-preprocessor/steps';
-import { getGreeting } from '../../support/app.po';
+
+//  ✅ Does not fail
+import { getGreeting } from '../../support/app.po';  
+
+// ❌ Fails
+// import { getGreeting } from '@frontend/testing/cy/page-objects';
 
 // ******************************************************************************
 // *** Given
 // ******************************************************************************
 Given('I navigate to the main page', (): void => {
+    cy
+        .intercept('api/*', { statusCode: 200 });
+
     cy
         .visit('/');
 });
