@@ -1,10 +1,10 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 //  ✅ Does not fail
-import { getGreeting } from '../../support/app.po';  
+// import { getGreeting } from '../../support/app.po';  
 
-// ❌ Fails
-// import { getGreeting } from '@frontend/testing/cy/page-objects';
+// ❌ Fails (seems to be OK after migrating to `badeball/cypress-cucumber-preprocessor`)
+import { getGreeting } from '@frontend/testing/cy/page-objects';
 
 // ******************************************************************************
 // *** Given
