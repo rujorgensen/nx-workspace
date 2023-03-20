@@ -1,4 +1,4 @@
-import { Given, Then, And } from 'cypress-cucumber-preprocessor/steps';
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 //  ✅ Does not fail
 import { getGreeting } from '../../support/app.po';  
@@ -20,7 +20,7 @@ Given('I navigate to the main page', (): void => {
 // ******************************************************************************
 // *** And
 // ******************************************************************************
-And('I stick around for 100 ms', (): void => {
+When('I stick around for 100 ms', (): void => {
     cy
         .wait(100);
 });
