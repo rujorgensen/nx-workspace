@@ -1,4 +1,14 @@
 {
+    "angularCompilerOptions": {
+        "strictInjectionParameters": true,
+        "strictInputAccessModifiers": true,
+        "strictTemplates": true,
+        "extendedDiagnostics": {
+            "checks": {
+                "optionalChainNotNullable": "error"
+            }
+        }
+    },
     "compileOnSave": false,
     "compilerOptions": {
         "rootDir": ".",
@@ -8,6 +18,7 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "importHelpers": true,
+        "strict": true,
         "target": "es2015",
         "module": "esnext",
         "lib": [

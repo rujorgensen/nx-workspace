@@ -19,10 +19,5 @@
         "**/*.cy.js",
         "**/*.cy.tsx",
         "**/*.cy.jsx"
-    ],
-    "angularCompilerOptions": {
-        "strictInjectionParameters": true,
-        "strictInputAccessModifiers": true,
-        "strictTemplates": true
-    }
+    ]
 }

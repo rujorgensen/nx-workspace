@@ -21,6 +21,7 @@ Given('I navigate to the main page', (): void => {
 // *** And
 // ******************************************************************************
 When('I stick around for 100 ms', (): void => {
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
     cy
         .wait(100);
 });
