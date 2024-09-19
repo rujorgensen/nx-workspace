@@ -3,7 +3,8 @@
         "../../.eslintrc.json"
     ],
     "ignorePatterns": [
-        "!**/*"
+        "!**/*",
+        "rspack.config.js"
     ],
     "overrides": [
         {

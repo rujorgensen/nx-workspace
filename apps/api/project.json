@@ -5,31 +5,27 @@
     "projectType": "application",
     "targets": {
         "build": {
-            "executor": "@nrwl/webpack:webpack",
+            "executor": "@nx/rspack:rspack",
             "outputs": [
                 "{options.outputPath}"
             ],
             "options": {
+                "target": "node",
                 "outputPath": "dist/apps/api",
                 "main": "apps/api/src/main.ts",
                 "tsConfig": "apps/api/tsconfig.app.json",
+                "rspackConfig": "apps/api/rspack.config.js",
                 "assets": [
                     "apps/api/src/assets"
-                ],
-                "target": "node",
-                "compiler": "tsc"
+                ]
             },
             "configurations": {
+                "development": {
+                    "mode": "development"
+                },
                 "production": {
-                    "optimization": true,
-                    "extractLicenses": true,
-                    "inspect": false,
-                    "fileReplacements": [
-                        {
-                            "replace": "apps/api/src/environments/environment.ts",
-                            "with": "apps/api/src/environments/environment.prod.ts"
-                        }
-                    ]
+                    "mode": "production",
+                    "sourceMap": false
                 }
             }
         },
