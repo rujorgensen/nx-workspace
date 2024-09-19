@@ -1,10 +1,20 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "files": [],
-  "include": [],
-  "references": [
-    {
-      "path": "./tsconfig.e2e.json"
-    }
-  ]
+    "extends": "../../tsconfig.base.json",
+    "files": [],
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.js",
+        "cypress.config.ts"
+    ],
+    "references": [],
+    "compilerOptions": {
+        "sourceMap": false,
+        "outDir": "../../dist/out-tsc",
+        "allowJs": true,
+        "types": [
+            "cypress",
+            "node"
+        ]
+    },
+    "exclude": []
 }

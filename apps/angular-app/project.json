@@ -56,45 +56,35 @@
         "serve": {
             "executor": "@angular-devkit/build-angular:dev-server",
             "options": {
-                "browserTarget": "angular-app:build",
-                "proxyConfig": "apps/angular-app/proxy.conf.json"
+                "proxyConfig": "apps/angular-app/proxy.conf.json",
+                "buildTarget": "angular-app:build"
             },
             "configurations": {
                 "production": {
-                    "browserTarget": "angular-app:build:production"
+                    "buildTarget": "angular-app:build:production"
                 }
             }
         },
         "extract-i18n": {
             "executor": "@angular-devkit/build-angular:extract-i18n",
             "options": {
-                "browserTarget": "angular-app:build"
+                "buildTarget": "angular-app:build"
             }
         },
         "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "options": {
-                "lintFilePatterns": [
-                    "apps/angular-app/src/**/*.ts",
-                    "apps/angular-app/src/**/*.html"
-                ]
-            },
-            "outputs": [
-                "{options.outputFile}"
-            ]
+            "executor": "@nx/eslint:lint"
         },
         "test": {
-            "executor": "@nrwl/jest:jest",
+            "executor": "@nx/jest:jest",
             "outputs": [
                 "{workspaceRoot}/coverage/apps/angular-app"
             ],
             "options": {
-                "jestConfig": "apps/angular-app/jest.config.ts",
-                "passWithNoTests": true
+                "jestConfig": "apps/angular-app/jest.config.ts"
             }
         },
         "component-test": {
-            "executor": "@nrwl/cypress:cypress",
+            "executor": "@nx/cypress:cypress",
             "options": {
                 "cypressConfig": "apps/angular-app/cypress.config.ts",
                 "testingType": "component",

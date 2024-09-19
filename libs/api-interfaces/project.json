@@ -5,15 +5,7 @@
     "projectType": "library",
     "targets": {
         "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "options": {
-                "lintFilePatterns": [
-                    "libs/api-interfaces/**/*.ts"
-                ]
-            },
-            "outputs": [
-                "{options.outputFile}"
-            ]
+            "executor": "@nx/eslint:lint"
         }
     }
 }

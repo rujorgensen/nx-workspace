@@ -4,24 +4,19 @@
     "projectType": "library",
     "sourceRoot": "libs/frontend/pipes/pipes/src",
     "prefix": "happynrwl",
+    "tags": [],
     "targets": {
         "test": {
-            "executor": "@nrwl/jest:jest",
-            "outputs": ["{workspaceRoot}/coverage/libs/frontend/pipes/pipes"],
+            "executor": "@nx/jest:jest",
+            "outputs": [
+                "{workspaceRoot}/coverage/libs/frontend/pipes/pipes"
+            ],
             "options": {
-                "jestConfig": "libs/frontend/pipes/pipes/jest.config.ts",
-                "passWithNoTests": true
+                "jestConfig": "libs/frontend/pipes/pipes/jest.config.ts"
             }
         },
         "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "options": {
-                "lintFilePatterns": [
-                    "libs/frontend/pipes/pipes/**/*.ts",
-                    "libs/frontend/pipes/pipes/**/*.html"
-                ]
-            }
+            "executor": "@nx/eslint:lint"
         }
-    },
-    "tags": []
+    }
 }

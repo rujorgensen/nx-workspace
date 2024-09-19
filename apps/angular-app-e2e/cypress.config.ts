@@ -1,6 +1,6 @@
 // Configuration from https://github.com/badeball/cypress-cucumber-preprocessor/blob/HEAD/docs/quick-start.md
 import { defineConfig } from 'cypress';
-import { nxE2EPreset } from '@nrwl/cypress/plugins/cypress-preset';
+import { nxE2EPreset } from '@nx/cypress/plugins/cypress-preset';
 import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor';
 import * as createBundler from '@bahmutov/cypress-esbuild-preprocessor';
 import createEsbuildPlugin from '@badeball/cypress-cucumber-preprocessor/esbuild';
@@ -14,7 +14,7 @@ const cypressJsonConfig = {
     specPattern: [
         '**/*.{feature,features}',
         '**/*.spec.ts',
-        'src/e2e/**/*.cy.{js,jsx,ts,tsx}'
+        'src/e2e/**/*.cy.{js,jsx,ts,tsx}',
     ],
     supportFile: 'src/support/e2e.ts',
 };
@@ -26,7 +26,7 @@ async function setupNodeEvents(
     await addCucumberPreprocessorPlugin(on, config);
 
     on(
-        "file:preprocessor",
+        'file:preprocessor',
         createBundler({
             plugins: [createEsbuildPlugin(config)],
         })

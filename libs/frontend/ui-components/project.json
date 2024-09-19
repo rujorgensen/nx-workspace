@@ -4,28 +4,25 @@
     "projectType": "library",
     "sourceRoot": "libs/frontend/ui-components/src",
     "prefix": "happynrwl",
+    "tags": [
+        "scope:frontend",
+        "type:ui"
+    ],
     "targets": {
         "test": {
-            "executor": "@nrwl/jest:jest",
+            "executor": "@nx/jest:jest",
             "outputs": [
                 "{workspaceRoot}/coverage/libs/frontend/ui-components"
             ],
             "options": {
-                "jestConfig": "libs/frontend/ui-components/jest.config.ts",
-                "passWithNoTests": true
+                "jestConfig": "libs/frontend/ui-components/jest.config.ts"
             }
         },
         "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "options": {
-                "lintFilePatterns": [
-                    "libs/frontend/ui-components/**/*.ts",
-                    "libs/frontend/ui-components/**/*.html"
-                ]
-            }
+            "executor": "@nx/eslint:lint"
         },
         "component-test": {
-            "executor": "@nrwl/cypress:cypress",
+            "executor": "@nx/cypress:cypress",
             "options": {
                 "cypressConfig": "libs/frontend/ui-components/cypress.config.ts",
                 "testingType": "component",
@@ -33,9 +30,5 @@
                 "devServerTarget": "angular-app:build"
             }
         }
-    },
-    "tags": [
-        "scope:frontend",
-        "type:ui"
-    ]
+    }
 }

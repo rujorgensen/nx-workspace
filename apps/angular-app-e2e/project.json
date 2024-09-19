@@ -5,10 +5,9 @@
     "projectType": "application",
     "targets": {
         "e2e": {
-            "executor": "@nrwl/cypress:cypress",
+            "executor": "@nx/cypress:cypress",
             "options": {
                 "cypressConfig": "apps/angular-app-e2e/cypress.config.ts",
-                "tsConfig": "apps/angular-app-e2e/tsconfig.e2e.json",
                 "devServerTarget": "angular-app:serve",
                 "testingType": "e2e"
             },
@@ -19,11 +18,7 @@
             }
         },
         "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "options": {
-                "lintFilePatterns": ["apps/angular-app-e2e/**/*.{js,ts}"]
-            },
-            "outputs": ["{options.outputFile}"]
+            "executor": "@nx/eslint:lint"
         }
     }
 }

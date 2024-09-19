@@ -6,7 +6,8 @@
         "types": [
             "cypress",
             "node"
-        ]
+        ],
+        "sourceMap": false
     },
     "include": [
         "support/**/*.ts",
