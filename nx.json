@@ -14,11 +14,13 @@
             "style": "scss",
             "linter": "eslint",
             "unitTestRunner": "jest",
-            "e2eTestRunner": "cypress"
+            "e2eTestRunner": "cypress",
+            "strict": true
         },
         "@nx/angular:library": {
             "linter": "eslint",
-            "unitTestRunner": "jest"
+            "unitTestRunner": "jest",
+            "strict": true
         },
         "@nx/angular:component": {
             "style": "scss"

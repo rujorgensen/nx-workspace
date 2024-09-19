@@ -14,6 +14,9 @@
                 "*.js",
                 "*.jsx"
             ],
+            "plugins": [
+                "@angular-eslint/eslint-plugin"
+            ],
             "rules": {
                 "@nx/enforce-module-boundaries": [
                     "error",
@@ -29,8 +32,51 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "@angular-eslint/component-selector": [
+                    "error",
+                    {
+                        "type": "element",
+                        "prefix": "app",
+                        "style": "kebab-case"
+                    }
+                ],
+                "@angular-eslint/directive-selector": [
+                    "error",
+                    {
+                        "type": "attribute",
+                        "prefix": "app",
+                        "style": "camelCase"
+                    }
+                ],
+                "no-bitwise": "off",
+                "security-node/detect-crlf": "off",
+                "@angular-eslint/no-conflicting-lifecycle": "error",
+                "@angular-eslint/no-host-metadata-property": "error",
+                "@angular-eslint/no-input-rename": "error",
+                "@angular-eslint/no-inputs-metadata-property": "error",
+                "@angular-eslint/no-output-native": "error",
+                "@angular-eslint/no-output-on-prefix": "error",
+                "@angular-eslint/no-output-rename": "error",
+                "@angular-eslint/no-outputs-metadata-property": "error",
+                "@angular-eslint/use-lifecycle-interface": "error",
+                "@angular-eslint/use-pipe-transform-interface": "error"
             }
+        },
+        {
+            "files": [
+                "*.html"
+            ],
+            "rules": {
+                "no-irregular-whitespace": "off",
+                "@angular-eslint/template/banana-in-box": "error",
+                "@angular-eslint/template/no-negated-async": "error",
+                "@angular-eslint/template/eqeqeq": "error",
+                "@angular-eslint/template/no-inline-styles": "error"
+            },
+            "plugins": [
+                "@angular-eslint/eslint-plugin-template"
+            ]
         },
         {
             "files": [
@@ -39,19 +85,6 @@
             ],
             "extends": [
                 "plugin:@nx/typescript"
-            ],
-            "rules": {
-                "@typescript-eslint/no-extra-semi": "error",
-                "no-extra-semi": "off"
-            }
-        },
-        {
-            "files": [
-                "*.js",
-                "*.jsx"
-            ],
-            "extends": [
-                "plugin:@nx/javascript"
             ],
             "rules": {
                 "@typescript-eslint/no-extra-semi": "error",

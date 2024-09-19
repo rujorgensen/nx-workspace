@@ -4,7 +4,8 @@
         "outDir": "../../dist/out-tsc",
         "types": [],
         "target": "ES2022",
-        "useDefineForClassFields": false
+        "useDefineForClassFields": false,
+        "strict": true
     },
     "files": [
         "src/main.ts",
@@ -18,5 +19,10 @@
         "**/*.cy.js",
         "**/*.cy.tsx",
         "**/*.cy.jsx"
-    ]
+    ],
+    "angularCompilerOptions": {
+        "strictInjectionParameters": true,
+        "strictInputAccessModifiers": true,
+        "strictTemplates": true
+    }
 }

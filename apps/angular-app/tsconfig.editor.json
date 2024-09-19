@@ -1,8 +1,15 @@
 {
-  "extends": "./tsconfig.json",
-  "include": ["**/*.ts"],
-  "compilerOptions": {
-    "types": ["jest", "node"]
-  },
-  "exclude": ["jest.config.ts"]
+    "extends": "./tsconfig.json",
+    "include": [
+        "**/*.ts"
+    ],
+    "compilerOptions": {
+        "types": [
+            "jest",
+            "node"
+        ]
+    },
+    "exclude": [
+        "jest.config.ts"
+    ]
 }
